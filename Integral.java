@@ -12,10 +12,20 @@ class Integral {
 	/**
 		Retorna a área sob a curva definida pela função f, entre os pontos
 		a e b, pela regra dos trapézios, aproximando a curva por n trapézios.
-		
+
 		O método retorna -1 caso n não seja maior ou igual a 1.
 	*/
 	static double resolve(Funcao f, double a, double b, int n) {
-		// coloque seu código aqui
+		double h = b - a;
+		double area = 0;
+		double somatorio = 0;
+
+		for(int i = 1; i <= n; i++){
+			somatorio += f.valor(i);
+		}
+
+		area = (h / 2) * f.valor(a) + f.valor(b) + 2 * (somatorio);
+
+		return (area);
 	}
 }
